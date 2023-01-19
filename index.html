@@ -1,0 +1,47 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sample Lander</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="boostrap.css">
+    <script src="jquery.js"></script>
+   
+</head>
+<body>
+    <div class="container text-center" style="margin-top:100px;">
+        <div class="row">
+            <div class="jumbotron text-center">
+                <h1>
+                    Sample Landing Page
+                </h1>
+            </div>
+        </div>
+               <div class="row lead">
+            This is a sample landing page. Click the button below to navigate to your offer.
+        </div>
+        <div class="row">
+  <a id="button1" href="https://c5yb4.bemobtrcks.com/postback?cid={cid}&payout=OPTIONAL&txid=OPTIONAL&status=OPTIONAL" data-href="https://c5yb4.bemobtrcks.com/click" class="final" ><button class="btn"  rel="#q0">               :rocket:I AGREE:rocket:                                        <span></span><span></span><span></span><span></span></button></a>
+
+<script>
+  function getURLParameter(name) {
+    return decodeURI(
+      (RegExp(name + '=' + '(.+?)(&|$)').exec(location.search)||[,null])[1] || ''
+    );
+  }
+
+  window.addEventListener("load", function() {
+    var button1 = document.getElementById("button1");
+
+    var href = button1.getAttribute('href');
+    href = href.split('{cid}').join(getURLParameter('cid'));
+    // ... all other parameters
+    button1.setAttribute('href', href)
+
+    button1.addEventListener("click", function() {
+      window.open(this.getAttribute("data-href"), "_blank")
+    })
+  })
+</script>
+        </div>
+    </div>
+</body>
