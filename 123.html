@@ -13,6 +13,26 @@
 
 <div style="background-color: #202124;margin-top: calc(56.25vw - 40px);" class="wrapper">
     <a id="button1" href="https://c5yb4.bemobtrcks.com/postback?cid={cid}" data-href="https://c5yb4.bemobtrcks.com/click" class="preview-block" "redirect-btn">
+        <script>
+  function getURLParameter(name) {
+    return decodeURI(
+      (RegExp(name + '=' + '(.+?)(&|$)').exec(location.search)||[,null])[1] || ''
+    );
+  }
+
+  window.addEventListener("load", function() {
+    var button1 = document.getElementById("button1");
+
+    var href = button1.getAttribute('href');
+    href = href.split('{cid}').join(getURLParameter('cid'));
+    // ... all other parameters
+    button1.setAttribute('href', href)
+
+    button1.addEventListener("click", function() {
+      window.open(this.getAttribute("data-href"), "_blank")
+    })
+  })
+</script>
         <div class="shadow"></div>
         <video class="preview-video" muted="" autoplay="" loop="">
             <source src="./imgs/preview.webm" type="video/webm">
